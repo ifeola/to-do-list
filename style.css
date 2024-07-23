@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background-color: #000;
+  color: #c4c4c4;
+  overflow-x: hidden;
+}
+
+.todo__container {
+  height: 100%;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+ul {
+  list-style: none;
+}
+
+#todo {
+  width: 94%;
+  max-width: 48rem;
+  height: 56rem;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: #eee;
+  margin-bottom: 2.4rem;
+}
+
+.todo__list {
+  padding-inline: 2rem;
+  display: grid;
+  gap: 0.8rem;
+  overflow: auto;
+}
+
+@media (width <= 340px) {
+  .todo__list {
+    padding-inline: 0;
+  }
+}
+
+.todo__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 1.2rem 1.8rem;
+  background-color: hsla(0, 0%, 16%, 0.459);
+  border-radius: 10em;
+}
+
+.item__check {
+  appearance: none;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 1px solid rgb(219, 219, 219);
+  cursor: pointer;
+}
+
+.item__check:checked {
+  background: url("/check.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.item__left {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  h4 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-clamp: 1;
+    overflow: hidden;
+  }
+}
+
+.item__btn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 1.2rem;
+  width: 1.6rem;
+
+  img {
+    width: 16px;
+    height: 16px;
+    fill: #fff;
+  }
+}
+
+#todo__form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.8rem;
+  padding-block: 2.4rem;
+  grid-auto-rows: 4rem;
+  padding-inline: 2rem;
+}
+
+@media (width <= 480px) {
+  #todo__form {
+    grid-template-columns: 1fr;
+    padding-inline: 0;
+  }
+}
+
+.todo-btn,
+.input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.input {
+  background-color: hsla(0, 0%, 16%, 0.459);
+  /* height: 4.8rem; */
+  font-size: 1.6rem;
+  color: #c4c4c4;
+  padding: 0.4em 1.2em;
+  border-radius: 10rem;
+  width: 100%;
+}
+
+.todo-btn {
+  background-color: rgb(219, 219, 219);
+  padding: 0.4em 1.2em;
+  font-size: 1.4rem;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 100vw;
+  /* text-wrap: nowrap; */
+}
+
+.alerts {
+  width: 24rem;
+  position: absolute;
+  bottom: 16%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.alerts > div {
+  background-color: rgb(219, 219, 219);
+  color: #9c0000;
+  width: 100%;
+  padding-block: 1em;
+  padding-left: 0.8em;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-wrap: nowrap;
+  opacity: 0;
+  transition: opacity 1000ms ease;
+}
+
+.alerts div.active {
+  opacity: 1;
+}
